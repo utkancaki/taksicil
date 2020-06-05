@@ -1,19 +1,90 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { FontAwesome } from "@expo/vector-icons";
+import SearchScreen from "./src/AppScreens/SearchScreen";
+import ProfileScreen from "./src/AppScreens/ProfileScreen";
+import SwipeScreen from "./src/AuthScreens/SwipeScreen";
+import LoginScreen from "./src/AuthScreens/LoginScreen";
+import RegisterScreen from "./src/AuthScreens/RegisterScreen";
+import CommentingScreen from "./src/AppScreens/CommentingScreen";
+import { UserContextProvider, useUserContext } from "./src/context/UserContext";
 
-export default function App() {
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
+function User() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+
+          if (route.name === "Ara") {
+            iconName = focused ? "search" : "search";
+          } else if (route.name === "Yorum Yap") {
+            iconName = focused ? "comment" : "comment-o";
+          } else if (route.name === "Profil") {
+            iconName = focused ? "user" : "user-o";
+          }
+
+          // You can return any component that you like here!
+          return <FontAwesome name={iconName} size={size} color={color} />;
+        },
+      })}
+      tabBarOptions={{
+        activeTintColor: "#e3386a",
+        inactiveTintColor: "gray",
+      }}
+    >
+      <Tab.Screen name="Ara" component={SearchScreen} />
+      <Tab.Screen name="Yorum Yap" component={CommentingScreen} />
+      <Tab.Screen name="Profil" component={ProfileScreen} />
+    </Tab.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const Main = () => {
+  const { user } = useUserContext();
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        {user.email ? (
+          <Stack.Screen
+            name="User"
+            component={User}
+            options={{ headerShown: false }}
+          />
+        ) : (
+          <>
+            <Stack.Screen
+              name="Swipe"
+              component={SwipeScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Login"
+              component={LoginScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Register"
+              component={RegisterScreen}
+              options={{ headerShown: false }}
+            />
+          </>
+        )}
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default function App() {
+  return (
+    <UserContextProvider>
+      <Main />
+    </UserContextProvider>
+  );
+}
