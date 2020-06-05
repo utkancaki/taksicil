@@ -116,6 +116,7 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width,
     height: Dimensions.get("window").height,
   },
+  
   outerBox: {
     alignSelf: "center",
     marginTop: 230,
