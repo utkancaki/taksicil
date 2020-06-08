@@ -10,7 +10,7 @@ export default function SearchScreen() {
 
   async function askData () {
     try {
-      const response = await fetch('https://taksicil.000webhostapp.com/askdata.php', {
+      const response = await fetch('http://192.168.1.28/taksicil/askdata.php', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -63,7 +63,7 @@ export default function SearchScreen() {
       
         <FlatList
           data={comments}
-          renderItem={({item}) => {return (<Text>{item.comment}</Text>)}}
+          renderItem={({item}) => {return (<Text>{item.comment} + {item.star}</Text>)}}
           keyExtractor={item => item.comment_id}
         />
       

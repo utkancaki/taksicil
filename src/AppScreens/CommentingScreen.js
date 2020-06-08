@@ -15,7 +15,7 @@ export default function CommentingScreen() {
     if (plate_1=='' && plate_2=='' && comment=='' && star=='' ){
         Alert.alert('Tüm alanları doldurunuz.');
     } else {
-        fetch('https://taksicil.000webhostapp.com/addComment.php', {
+        fetch('http://192.168.1.28/taksicil/addComment.php', {
             method: 'POST',
             headers: {
               'Accept': 'application/json',

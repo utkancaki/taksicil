@@ -16,16 +16,16 @@ const RegisterScreen = ({ navigation }) => {
         if (name=='' && surname=='' && email=='' && password=='' && passwordAgain==''){
             Alert.alert('Tüm alanları doldurunuz.');
         } else if (password==passwordAgain){
-            fetch('https://taksicil.000webhostapp.com/register.php', {
+            fetch('http://192.168.1.28/taksicil/register.php', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    name: name,
-                    surname: surname,
                     email: email,
+                    name: name,
+                    surname: surname,                  
                     password: password
                 })
             })

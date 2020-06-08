@@ -17,7 +17,7 @@ export default function ProfileScreen() {
   const [userData, setUserData] = React.useState([]);
 
   try {
-    fetch('https://taksicil.000webhostapp.com/getUserData.php', {
+    fetch('http://192.168.1.28/taksicil/getUserData.php', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

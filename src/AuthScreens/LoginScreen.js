@@ -27,7 +27,7 @@ const LoginScreen = ({ navigation }) => {
     
     try {
       const response = await fetch(
-      "https://taksicil.000webhostapp.com/login.php",
+      "http://192.168.1.28/taksicil/login.php",
       {
       method: "POST",
            headers: {
