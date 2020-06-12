@@ -24,36 +24,32 @@ const LoginScreen = ({ navigation }) => {
     //do any call to your server
     //and  may be save token, info from server etc
 
-    
     try {
-      const response = await fetch(
-      "http://192.168.1.28/taksicil/login.php",
-      {
-      method: "POST",
-           headers: {
-             Accept: "application/json",
-             "Content-Type": "application/json",
-           },
-           body: JSON.stringify({
-             email: email,
-             password: password,
-           }),
-         }
-       );
-       const parsedResponse = await response.json();
-       // If server response message same as Data Matched
-       if (parsedResponse === "Data Matched") {
-         setUser((ps) => ({ ...ps, email }));
-       } else {
-         Alert.alert(parsedResponse);
-       }
+      const response = await fetch("http://192.168.1.28/taksicil/login.php", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      });
+      const parsedResponse = await response.json();
+      // If server response message same as Data Matched
+      if (parsedResponse === "Data Matched") {
+        setUser((ps) => ({ ...ps, email }));
+      } else {
+        Alert.alert(parsedResponse);
+      }
     } catch (error) {
       console.log(error);
     }
   }
   return (
-    <ImageBackground 
-      source={require('../../assets/login.png')} 
+    <ImageBackground
+      source={require("../../assets/login.png")}
       style={styles.backgroundImage}
     >
       <View style={styles.outerBox}>
@@ -116,7 +112,7 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width,
     height: Dimensions.get("window").height,
   },
-  
+
   outerBox: {
     alignSelf: "center",
     marginTop: 230,
