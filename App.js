@@ -21,15 +21,13 @@ function User() {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
-          if (route.name === "Ara") {
+          if (route.name === "Search") {
             iconName = focused ? "search" : "search";
-          } else if (route.name === "Yorum Yap") {
+          } else if (route.name === "Comment") {
             iconName = focused ? "comment" : "comment-o";
-          } else if (route.name === "Profil") {
+          } else if (route.name === "Profile") {
             iconName = focused ? "user" : "user-o";
           }
-
-          // You can return any component that you like here!
           return <FontAwesome name={iconName} size={size} color={color} />;
         },
       })}
@@ -38,9 +36,9 @@ function User() {
         inactiveTintColor: "gray",
       }}
     >
-      <Tab.Screen name="Ara" component={SearchScreen} />
-      <Tab.Screen name="Yorum Yap" component={CommentingScreen} />
-      <Tab.Screen name="Profil" component={ProfileScreen} />
+      <Tab.Screen name="Search" component={SearchScreen} />
+      <Tab.Screen name="Comment" component={CommentingScreen} />
+      <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );
 }

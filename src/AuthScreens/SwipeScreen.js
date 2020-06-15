@@ -20,14 +20,14 @@ const SwipeScreen = ({ navigation }) => {
     >
       <View>
         <ImageBackground
-          source={require("../../assets/swipe1.png")}
+          source={require("../../assets/swipe1_en.png")}
           style={styles.backgroundImage}
         />
       </View>
 
       <View>
         <ImageBackground
-          source={require("../../assets/swipe2.png")}
+          source={require("../../assets/swipe2_en.png")}
           style={styles.backgroundImage}
         >
           <View style={{ flex: 1, justifyContent: "flex-end" }}>
@@ -38,7 +38,7 @@ const SwipeScreen = ({ navigation }) => {
               <Text
                 style={{ color: "#005662", fontWeight: "700", fontSize: 15 }}
               >
-                BAŞLAYIN
+                START
               </Text>
             </TouchableOpacity>
           </View>

@@ -21,8 +21,6 @@ const LoginScreen = ({ navigation }) => {
   const { setUser } = useUserContext();
 
   async function signIn() {
-    //do any call to your server
-    //and  may be save token, info from server etc
 
     try {
       const response = await fetch("http://192.168.1.28/taksicil/login.php", {
@@ -37,7 +35,6 @@ const LoginScreen = ({ navigation }) => {
         }),
       });
       const parsedResponse = await response.json();
-      // If server response message same as Data Matched
       if (parsedResponse === "Data Matched") {
         setUser((ps) => ({ ...ps, email }));
       } else {
@@ -78,7 +75,7 @@ const LoginScreen = ({ navigation }) => {
 
         <TouchableOpacity style={styles.button} onPress={signIn}>
           <Text style={{ color: "#FFF", fontWeight: "700", fontSize: 15 }}>
-            Giriş Yap
+            Log In
           </Text>
         </TouchableOpacity>
 
@@ -90,12 +87,12 @@ const LoginScreen = ({ navigation }) => {
             marginBottom: 10,
           }}
         >
-          <Text style={{ color: "black" }}>Hesabınız yok mu? </Text>
+          <Text style={{ color: "black" }}>Don't Have an Account? </Text>
           <Text
             style={{ color: "#e3386a", fontWeight: "bold" }}
             onPress={() => navigation.navigate("Register")}
           >
-            Hemen kayıt olun!
+            Register Now!
           </Text>
         </View>
       </View>
