@@ -73,7 +73,7 @@ export default function ProfileScreen() {
     <View>
       <View style={styles.container}>
         <Text style={{ fontWeight: "bold", fontSize: 16, marginBottom: 15 }}>
-          Profil
+          Profile
         </Text>
 
         <FontAwesome
@@ -83,11 +83,11 @@ export default function ProfileScreen() {
         />
       </View>
 
-      <Text style={styles.accountText}>Hesap Bilgilerin</Text>
+      <Text style={styles.accountText}>Your Account</Text>
 
       <View style={styles.section}>
         <MaterialIcons name="person-outline" style={styles.icon} />
-        <Text style={styles.text}>AD</Text>
+        <Text style={styles.text}>NAME</Text>
         <TextInput
           style={styles.textInput}
           placeholder={userData[0]?.name}
@@ -98,7 +98,7 @@ export default function ProfileScreen() {
 
       <View style={styles.section}>
         <MaterialIcons name="person" style={styles.icon} />
-        <Text style={styles.text}>SOYAD</Text>
+        <Text style={styles.text}>SURNAME</Text>
         <TextInput
           style={styles.textInput}
           placeholder={userData[0]?.surname}
@@ -115,7 +115,7 @@ export default function ProfileScreen() {
 
       <View style={styles.section}>
         <Feather name="lock" style={styles.icon} />
-        <Text style={styles.text}>YENİ ŞİFRE</Text>
+        <Text style={styles.text}>NEW PASSWORD</Text>
         <TextInput
           style={styles.textInput}
           placeholder={userData[0]?.password}
@@ -127,7 +127,7 @@ export default function ProfileScreen() {
 
       <TouchableOpacity style={styles.button} onPress={updateUserData}>
         <Text style={{ fontWeight: "bold", fontSize: 15, color: "white" }}>
-          Bilgilerini Güncelle
+          Update
         </Text>
       </TouchableOpacity>
     </View>

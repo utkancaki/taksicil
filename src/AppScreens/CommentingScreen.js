@@ -40,7 +40,7 @@ export default function CommentingScreen() {
   }, []);
   async function addComment() {
     if (plate_1 == "" && plate_2 == "" && comment == "" && star == "") {
-      Alert.alert("Tüm alanları doldurunuz.");
+      Alert.alert("Fill all spaces.");
     } else {
       try {
         const response = await fetch(
@@ -74,12 +74,12 @@ export default function CommentingScreen() {
     <View>
       <View style={styles.container}>
         <Text style={{ fontWeight: "bold", fontSize: 16, marginBottom: 15 }}>
-          Yorum Yap
+          Make Comment
         </Text>
       </View>
 
       <Text style={styles.header}>
-        Yorum yapmak istediğiniz taksi plakasını girin:
+        Please enter the taxi plate:
       </Text>
 
       <View style={styles.board}>
@@ -112,7 +112,7 @@ export default function CommentingScreen() {
         />
       </View>
 
-      <Text style={styles.header}>Yolculuktan memnun kaldınız mı?</Text>
+      <Text style={styles.header}>How was your trip?</Text>
 
       <StarRating
         emptyStar={"ios-star-outline"}
@@ -131,13 +131,13 @@ export default function CommentingScreen() {
         style={styles.comment}
         value={comment}
         onChangeText={setComment}
-        placeholder="Yorumunuz..."
+        placeholder="Your comment..."
         multiline={true}
       />
 
       <TouchableOpacity style={styles.button} onPress={addComment}>
         <Text style={{ fontWeight: "bold", fontSize: 15, color: "white" }}>
-          Gönder
+          Send
         </Text>
       </TouchableOpacity>
     </View>

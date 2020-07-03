@@ -28,7 +28,7 @@ const RegisterScreen = ({ navigation }) => {
       password == "" &&
       passwordAgain == ""
     ) {
-      Alert.alert("Tüm alanları doldurunuz.");
+      Alert.alert("Please fill all the spaces.");
     } else if (password == passwordAgain) {
       fetch("http://192.168.1.28/taksicil/register.php", {
         method: "POST",
@@ -56,7 +56,7 @@ const RegisterScreen = ({ navigation }) => {
           console.error(error);
         });
     } else {
-      Alert.alert("Girilen Şifreler Uyuşmuyor");
+      Alert.alert("Passwords doesn't match");
     }
   }
 
@@ -70,12 +70,11 @@ const RegisterScreen = ({ navigation }) => {
         style={styles.backIcon}
         onPress={() => navigation.goBack()}
       />
-      <Text style={styles.headerStyle}>KAYIT FORMU</Text>
+      <Text style={styles.headerStyle}>REGISTER FORM</Text>
 
       <View style={styles.outerBox}>
         <Text style={styles.textStyle}>
-          *Yaptığınız yorumlarda yalnızca isminizin ve soyisminizin baş harfleri
-          gözükür.
+          *In the comments you make, only the first letters of your name and surname appears.
         </Text>
 
         <View
@@ -88,7 +87,7 @@ const RegisterScreen = ({ navigation }) => {
           <View style={styles.firstInput}>
             <MaterialIcons name="person-outline" style={styles.icon} />
             <TextInput
-              placeholder="İsim"
+              placeholder="Name"
               autoCapitalize="none"
               style={styles.textInputStyleFirst}
               onChangeText={setName}
@@ -97,7 +96,7 @@ const RegisterScreen = ({ navigation }) => {
           <View style={styles.firstInput}>
             <MaterialIcons name="person" style={styles.icon} />
             <TextInput
-              placeholder="Soyisim"
+              placeholder="Surname"
               autoCapitalize="none"
               style={styles.textInputStyleFirst}
               onChangeText={setSurname}
@@ -108,7 +107,7 @@ const RegisterScreen = ({ navigation }) => {
         <View style={styles.inputStyle}>
           <MaterialCommunityIcons name="email-outline" style={styles.icon} />
           <TextInput
-            placeholder="Email adresi"
+            placeholder="Email"
             autoCapitalize="none"
             style={styles.textInputStyle}
             onChangeText={setEmail}
@@ -118,7 +117,7 @@ const RegisterScreen = ({ navigation }) => {
         <View style={styles.inputStyle}>
           <Feather name="lock" style={styles.icon} />
           <TextInput
-            placeholder="Şifre"
+            placeholder="Password"
             autoCapitalize="none"
             style={styles.textInputStyle}
             secureTextEntry
@@ -129,7 +128,7 @@ const RegisterScreen = ({ navigation }) => {
         <View style={styles.inputStyle}>
           <Feather name="lock" style={styles.icon} />
           <TextInput
-            placeholder="Tekrar şifre"
+            placeholder="Password again"
             autoCapitalize="none"
             style={styles.textInputStyle}
             secureTextEntry
@@ -139,7 +138,7 @@ const RegisterScreen = ({ navigation }) => {
 
         <TouchableOpacity style={styles.button} onPress={registerUser}>
           <Text style={{ color: "white", fontWeight: "700", fontSize: 17 }}>
-            Kayıt Ol
+            Register
           </Text>
         </TouchableOpacity>
       </View>

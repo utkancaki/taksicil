@@ -39,7 +39,7 @@ export default function SearchScreen() {
   return (
     <View>
       <View style={styles.container}>
-        <Text style={styles.header}>Yorumları İncele</Text>
+        <Text style={styles.header}>Search Comments</Text>
       </View>
       <View style={styles.board}>
         <View style={styles.tr}>
@@ -72,7 +72,7 @@ export default function SearchScreen() {
       </View>
       <TouchableOpacity style={styles.searchButton} onPress={askData}>
         <Ionicons name="ios-search" style={{ color: "white", fontSize: 20 }} />
-        <Text style={{ color: "white", fontSize: 16, marginLeft: 6 }}>Ara</Text>
+        <Text style={{ color: "white", fontSize: 16, marginLeft: 6 }}>Search</Text>
       </TouchableOpacity>
 
       <FlatList

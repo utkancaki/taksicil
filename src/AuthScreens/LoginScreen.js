@@ -64,7 +64,7 @@ const LoginScreen = ({ navigation }) => {
         <View style={styles.password}>
           <Feather name="lock" style={styles.icon} />
           <TextInput
-            placeholder="Şifre..."
+            placeholder="Password..."
             autoCapitalize="none"
             style={styles.textInputStyle}
             secureTextEntry
